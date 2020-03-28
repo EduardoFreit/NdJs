@@ -1,0 +1,67 @@
+NodeJs / criação de API-rest com o NodeJs
+
+NodeJs = plataforma que utiliza da V8(engine do chrome para entender javaScript)
+    para tratar requisições e repostas do servidor, acessar banco de dados(MongoDB),
+    e fazer programação com alguma outra linguagem, como Ruby/Python/PHP.
+
+Conceito full MVC = criasse a parte visual junto com o back-end (Ex.:wordpress). O back-end
+    e o front-End ficam juntos;
+
+Conceito API-REST = separasse o front do Back-end;
+    Vantagens:
+        Mais flexibilidade no front-End;
+        Trabalhar unica app/API BackEnd para multiplas plataformas(Mobile, Web, etc);
+    
+    Desvantagens:
+        Mais complexidade;
+
+COMEÇANDO
+1 - criar uma pasta do projeto;
+2 - dentro da pasta, executar no terminal 'npm init -y'
+3 - 1ª dependencia: npm instal l express (um micro framework que ajuda a lhe dar com 
+                    rotas (endereços da url q o usario vai poder acessar na API) e 
+                    views(formas de visualização(Front-End)
+4 - Cria um server.js
+5 - node server.js (o terminal)
+6 - abrir navegador com a porta do server '3001'
+7 - npm instal -D nodemon //serve para atualizar o servidor automaticamente sem precisar reiniciar o servidor(só att a pag html)
+8 - criar um script em package.json:
+        "dev": "nodemon <Nome_do_Js>.js"
+        rodar o servidor: npm rum dev
+9 - instalar MongoDB
+10 - instalar Docker = Os containers lhe permitem executar suas aplicações em processos com isolamento de recursos.
+        Eles são semelhantes às máquinas virtuais, mas os containers são mais portáteis, possuem recursos mais amigáveis,
+        e são mais dependentes do sistema operacional do host.
+        "https://www.hostinger.com.br/tutoriais/install-docker-ubuntu"
+
+11- docker pull mongodb //instalando mongoDB
+12 - docker run --name mongodb -p 27017:27017 //a porta 27017 do pc vai para a porta do mongo 27017
+13 - docker ps //verificar os seus containers (o do mongo tem q ta criado)
+14 - baixar robot3T // serve para visualizar os containers
+15 - se reiniciar digite o comando "docker start <nome_container>"
+16 - npm install mongoose //Mongoose fornece um mapeamento de objetos do MongoDB similar ao ORM 
+                            (Object Relational Mapping), ou ODM (Object Data Mapping) no caso do Mongoose.
+                            Isso significa que o Mongoose traduz os dados do banco de dados para objetos 
+                            JavaScript para que possam ser utilizados por sua aplicação. 
+17 - ./src = todos os codigos javaScript, rotas
+18 - src/models = todos os models/schema do banco de dados (no projeto MongoDB);
+19 - src/controllers = controles da operações em determinados models, nesse caso, model Products(ex, listagem, atualização, remoção)
+20 - software para verificar as rotas da API, com mais clarezas = isnomnia.rest
+21 - rota get - pegar registro do banco de dados/servidor
+22 - rota post - criação de um novo registro/algo no banco de dados/servidor
+22 - rota put - rota para criar alguma coisa, no caso, um novo registro
+23 - rota delete - rota para deletar registro do banco de dados
+24 - npm install mongoose-paginate // serve para mostrar os registros de uma forma mais organizada através 
+                                    e não todos de uma vez.
+25 - no final do get(insomnia), eh retornado:
+        "total": 16, //total de registros do banco
+        "limit": 10, // itens por pagina
+        "page": 1,   // a pagina q se encontra (1ª)
+        "pages": 2   // o total de paginas
+    }//isso pode ser usado paramosntra na interface  
+26 - permitir que outros endereços acessam a API
+27 - CORS(Compartilhamento de recursos com origens diferentes)
+        serve para permite que outros endereços acessem a API 
+        Se tentar acessar a aplicação de outro endereço, sem o permitir o cors,
+        não sera dada a permição
+28 -        
